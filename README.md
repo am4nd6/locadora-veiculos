@@ -50,7 +50,3 @@ LocadoraDeVeiculos/
 ├── venv/                # Ambiente virtual
 └── README.md
 ```
-
-## Grupo
-
-Amanda, Déborah, Gabriela e Vinícius — IFMA
