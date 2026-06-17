@@ -1,0 +1,59 @@
+{% extends 'paginas/template.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block titulo %}
+<title>Cadastros</title>
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="container-fluid bg-secondary px-0 position-center">
+    <div class="row g-0">
+        <div class="py-6 px-5">
+            <h3>{{ titulo }}</h3>
+        <p class="lead">
+            Preencha todos os campos obrigatórios.
+        </p>
+        <hr>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <p></p>
+            <div class="filho">
+            <button type="submit" class= "btn btn-primary">
+                {% autoescape off %}
+                {{ icone }}
+                {% endautoescape %}
+                {{ botao }}
+            </button>
+            </div>
+        </form>
+        </div>
+    </div>
+        </div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    $(document).ready(function(){
+        $("#id_nascimento").mask("00/00/0000");
+        $("#id_cpf").mask("000.000.000-00");
+        $("#id_rg").mask("00.000.000-0");
+
+        var SPMaskBehavior = function (val) {
+          return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+        },
+            spOptions = {
+                onKeyPress: function(val, e, field, options) {
+                     field.mask(SPMaskBehavior.apply({}, arguments), options);
+                }
+            };
+
+        $('#id_celular').mask(SPMaskBehavior, spOptions);
+
+    });
+</script>
+
+{% endblock %}
+

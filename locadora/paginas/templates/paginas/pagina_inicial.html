@@ -1,0 +1,101 @@
+{% extends 'paginas/template.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block titulo %}
+<title>Página Inicial</title>
+{% endblock %}
+
+
+{% block conteudo %}
+
+    <div class="container-fluid bg-secondary p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 py-6 px-5">
+                {% if user.is_superuser %}
+                    <h1 class="display-5 mb-4">OLÁ, SEJA BEM-VINDO(A)<span class="text-primary"> ADMIN!</span></h1>
+                    <div class="final">
+
+                    </div>
+                {% else %}
+                
+                    <h1 class="display-5 mb-4">OLÁ, SEJA<span class="text-primary"> 
+                        {% if user.perfil.nome_completo %}
+                        BEM-VINDO(A) {{user.perfil.nome_completo}}!
+                        {% else %}
+                        BEM-VINDO(A)!
+                        {% endif %}
+                    </span></h1>
+                    <div class="final">
+                        {% if user.perfil.nome_completo %}
+                        {% else %}
+                        Você precisa completar seu cadastro. Acesse os <a href="{% url 'atualizar-dados' %}">meus dados</a> para atualizar.
+                        {% endif %}
+                    </div>
+                    <p></p>
+                    <div class="final">
+                        <form id="formCidades">
+                            <h5>Digite o nome da cidade: </h5>
+                            <input type="text" id="cidade" name="cidade" list="listaCidades"><br>
+                            <p></p>
+                            <button class="btn btn-primary w-5 py-2" type="button" onclick="filtrarCidades()">Buscar</button>
+                          </form>
+                          
+                          <datalist id="listaCidades">
+                            <option value="São Paulo">
+                            <option value="Rio de Janeiro">
+                            <option value="Belo Horizonte">
+                            <option value="Brasília">
+                            <option value="Fortaleza">
+                            <option value="São Luís">
+                            <option value="Rio Branco">
+                            <option value="Maceió">
+                            <option value="Macapá">
+                            <option value="Manaus">
+                            <option value="Salvador">
+                            <option value="Fortaleza">
+                            <option value="Vitória">
+                            <option value="Goiânia">
+                            <option value="Cuiabá">
+                            <option value="Campo Grande">
+                          </datalist>
+                          
+                          <script>
+                            function filtrarCidades() {
+                                    const cidade = document.getElementById("cidade").value;
+                                    const opcoes = document.getElementById("listaCidades").options;
+                                    let cidadeValida = false;
+                                    for (let i = 0; i < opcoes.length; i++) {
+                                        if (opcoes[i].value === cidade) {
+                                        cidadeValida = true;
+                                        break;
+                                        }
+                                    }
+                                    if (cidadeValida) {
+                                        document.getElementById("formCidades").elements.cidade.value = cidade;
+                                        window.location.href = "{% url 'buscar' %}";
+                                    } else {
+                                        alert("Cidade inválida. Por favor, digite corretamente ou selecione uma cidade da lista.");
+                                    }
+                                    }
+                          </script> 
+                    </div>
+                {% endif %}
+            </div>
+            {% if user.is_superuser %}
+            <div class="col-lg-6">
+                <div class="col-lg-6" style="min-height: 10px;">
+                     <img class="position-relative" src="{% static 'img/oi.png' %}" style="object-fit: cover;">
+                </div>
+            </div>
+            {% else %}
+            <div class="col-lg-6">
+                <div class="col-lg-6" style="min-height: 10px;">
+                     <img class="position-relative" src="{% static 'img/olaapessoal.png' %}" style="object-fit: cover;">
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+</html>

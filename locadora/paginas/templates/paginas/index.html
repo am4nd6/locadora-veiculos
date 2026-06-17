@@ -1,0 +1,294 @@
+{% extends 'paginas/template.html' %}
+{% load static %}
+{% block titulo %}
+<title>Início</title>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-fluid p-0">
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'img/Capturar.jpg' %}" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h5 class="text-white text-uppercase">Bem-vindo(a) ao </h5>
+                        <h1 class="display-1 text-white mb-md-4">ULYSSES VEÍCULOS</h1>
+                        {% if request.user.is_authenticated %}
+                        {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Entrar</a>
+                        <a href="{% url 'registrar' %}" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Cadastre-se</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="{% static 'img/Capturar 2.PNG' %}" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h5 class="text-white text-uppercase">Bem-vindo(a) ao</h5>
+                        <h1 class="display-1 text-white mb-md-4">ULYSSES VEÍCULOS</h1>
+                        {% if request.user.is_authenticated %}
+                        {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Entrar</a>
+                        <a href="{% url 'registrar' %}" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Cadastre-se</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="container-fluid bg-secondary p-0">
+    <div class="row g-0">
+        <div class="col-lg-6 py-6 px-5">
+            <h1 class="display-5 mb-4"> <span class="text-primary">Temos um carro programado para você!</span></h1>
+            <div class="final">
+            <h3 class="text-primary mb-4">Faça a sua reserva e abra o seu carro através do seu celular.
+                Encontre o estacionamento mais próximo, escolha o carro e a quantidade de tempo que quer ficar com ele. Agora é só chegar no local, abrir o seu carro e aproveitar a viagem!</p>
+            </div>
+            </div>
+        <div class="col-lg-6">
+            <div class="h-100 d-flex flex-column justify-content-center bg-primary p-5">
+                <div class="d-flex text-white mb-5">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4" style="width: 60px; height: 60px;">
+                        <i class="fa fa-user-tie fs-4"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h3>Pagamento  facilitado!</h3>
+                        <p class="mb-0">Pagamento diretamente na locadora quando for retirar o veículo.</p>
+                    </div>
+                </div>
+                <div class="d-flex text-white mb-5">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4" style="width: 60px; height: 60px;">
+                        <i class="fa fa-chart-line fs-4"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h3>Site confiável!</h3>
+                        <p class="mb-0">Não se preocupe ao navegar pelo Ulysses Veículos, por aqui seus dados estão protegidos.</p>
+                    </div>
+                </div>
+                <div class="d-flex text-white">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4" style="width: 60px; height: 60px;">
+                        <i class="fa fa-balance-scale fs-4"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h3>Atendimento direto e troca fácil!</h3>
+                        <div class="final">
+                        <p class="mb-0">Sempre que precisar, estaremos prontos para te responder nas redes sociais, e-mail e por telefone. É só nos chamar onde preferir! Desistiu da compra ou quer fazer a troca? Por aqui não temos frescura e vamos te auxiliar com todo o passo a passo!</p>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-6 px-5">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+        <h2 class="display-5 mb-0">Temos um mecânico que programará um carro especialmente para você!</h2>
+    </div>
+    <div class="row g-5">
+        <div class="col-lg-4">
+            <div class="row g-5">
+                <div class="col-12">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-cubes fs-4 text-white"></i>
+                    </div>
+                    <h3>O melhor mecânico de São Luís!</h3>
+                </div>
+                <div class="col-12">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-percent fs-4 text-white"></i>
+                    </div>
+                    <h3>100% na taxa de sucesso</h3>
+                </div>
+                <div class="col-12">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-award fs-4 text-white"></i>
+                    </div>
+                    <h3>Campeão do Rally Dakar de 2018</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="d-block bg-primary h-100 text-center">
+                <img class="img-fluid" src="{% static 'img/mecanico.jpg' %}" alt="">
+                <div class="p-4">
+                    <h2>Ulysses Mecânico</h2>
+                    <p class="text-white mb-4"> Ele certamente causa inveja aos profissionais da área, sempre disponíveis em endereço fixo na mecânica mais próxima. Ulysses Santos, aos 48 anos, já viajou o mundo reparando carros. E tem histórias incríveis para contar, como a da conquista do título do Rally Dakar de 2018, ao lado do piloto da equipe Monster Energy Can-Am, Reinaldo Varela. Lembrando que Ulysses acumula nada menos que 36 títulos nacionais e internacionais de grande relevância, incluindo aí um tricampeonato mundial.</p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row g-5">
+                <div class="col-12">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="far fa-smile-beam fs-4 text-white"></i>
+                    </div>
+                    <h3>100% de satisfação do cliente</h3>
+                </div>
+                <div class="col-12">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-user-tie fs-4 text-white"></i>
+                    </div>
+                    <h3>Profissional</h3>
+                </div>
+                <div class="col-12">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-headset fs-4 text-white"></i>
+                    </div>
+                    <h3>24/7 Suporte ao cliente</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-secondary px-0">
+    <div class="row g-0">
+        <div class="col-lg-6 py-6 px-5">
+            <h1 class="display-5 mb-4">O melhor do Brasil!</h1>
+            <div class="final">
+            <p class="mb-4">Atuando desde 2007, Ulysses Veículos é o primeiro site de aluguel de automóveis do país, tem parcerias com as principais locadoras, sejam elas de grande porte ou até mesmo as regionais, permitindo comparação de preços, as melhores ofertas e reservas em tempo real. Milhares de clientes satisfeitos, com avaliações reais coletadas pela TrustVox (Grupo ReclameAqui), trazendo tranquilidade e eficiência, principalmente pelo nosso modelo de negócio, onde a reserva é feita em nosso site e o pagamento diretamente na locadora quando for retirar o veículo.</p>
+            </div>
+        </div>
+        <div class="col-lg-6" style="min-height: 400px;">
+            <div class="position-relative h-100">
+                <img class="position-absolute w-100 h-100" src="{% static 'img/lamborg.PNG' %}" style="object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-6 px-5">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+        <h1 class="display-5 mb-0">Temos aqui:</h1>
+    </div>
+    <div class="row g-5">
+        <div class="col-lg-4">
+            <div class="team-item position-relative overflow-hidden">
+                <img class="img-fluid w-100" src="{% static 'img/ssssssssss.png' %}" alt="">
+                <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                    <h3 class="text-white">Carros</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-item position-relative overflow-hidden">
+                <img class="img-fluid w-100" src="{% static 'img/moto massa.png' %}" alt="">
+                <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                    <h3 class="text-white">Motos</h3>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-item position-relative overflow-hidden">
+                <img class="img-fluid w-100" src="{% static 'img/van.png' %}" alt="">
+                <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                    <h3 class="text-white">Vans</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-secondary p-0">
+    <div class="row g-0">
+        <div class="col-lg-6" style="min-height: 500px;">
+            <div class="position-relative h-100">
+                <img class="position-absolute w-100 h-100" src="{% static 'img/carros massa.png' %}" style="object-fit: cover;">
+            </div>
+        </div>
+        <div class="col-lg-6 py-6 px-5">
+            <h1 class="display-5 mb-4">Os melhores automóveis se encontram aqui!!!</h1>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item">
+                    <div class="final">
+                    <p class="fs-4 fw-normal mb-4"><i class="fa fa-quote-left text-primary me-3"></i>Aluguei um veículo em Maceió, foi um excelente atendimento e os funcionários são bem prestativos!</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid rounded-circle" src="{% static 'img/testimonial-2.jpg' %}" alt="">
+                        <div class="ps-4">
+                            <h3>Marcela Ferreira</h3>
+                            <span class="text-uppercase">Empresária</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p class="fs-4 fw-normal mb-4"><i class="fa fa-quote-left text-primary me-3"></i>Serviço de primeira, ágil e satisfatória.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid rounded-circle" src="{% static 'img/testimonial-1.jpg' %}" alt="">
+                        <div class="ps-4">
+                            <h3>Carlos Manoel</h3>
+                            <span class="text-uppercase">Advogado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-6 px-5">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+        <h1 class="display-5 mb-0">Postagens mais recentes</h1>
+    </div>
+    <div class="row g-5">
+        <div class="col-lg-4">
+            <div class="blog-item">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid" src="{% static 'img/White-Camaro-PNG-Pic.png' %}" alt="">
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="blog-item">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid" src="{% static 'img/moto1.jpg' %}" alt="">
+                </div>
+                <div class="bg-secondary d-flex">
+                    <div class="flex-shrink-0 d-flex flex-column justify-content-center text-center bg-primary text-white px-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="blog-item">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid" src="{% static 'img/carrooooooooo.png' %}" alt="">
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-primary text-secondary p-5">
+    <div class="row g-5">
+        <div class="col-12 text-center">
+            <h1 class="display-5 mb-4">Fique atualizado!!!</h1>
+            <form class="mx-auto" style="max-width: 600px;">
+                <div class="input-group">
+                    <input type="text" class="form-control border-white p-3" placeholder="Seu Email">
+                    <button class="btn btn-dark px-4">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

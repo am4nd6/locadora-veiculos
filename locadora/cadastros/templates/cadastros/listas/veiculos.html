@@ -1,0 +1,93 @@
+{% extends 'paginas/template.html' %}
+{% load static %}
+{% block titulo %}
+<title>Lista de Veículos</title>
+{% endblock %}
+
+{% block conteudo %}
+<h3>Lista de veículos registrados</h3>
+<a href="{% url 'cadastrar-veiculos' %}" class="btn btn-primary btn-sm">Adicionar veículo</a>
+<hr>
+
+<div class="table-responsive">
+    <table class="table table-striped" id="tabela-listar">
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Ano</th>
+                <th>Cor</th>
+                <th>Tipo</th>
+                <th>Preço pela Diária</th>
+                <th>Usuário</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for veiculos in object_list %}
+            <tr>
+                <td>{{ veiculos.placa }}</td>
+                <td>{{ veiculos.modelo }}</td>
+                <td>{{ veiculos.marca }}</td>
+                <td>{{ veiculos.ano }}</td>
+                <td>{{ veiculos.cor }}</td>
+                <td>{{ veiculos.tipo }}</td>
+                <td>{{ veiculos.preco_diaria }}</td>
+                <td>{{ veiculos.usuario }}</td>
+
+                <td>
+                <a href="{% url 'editar-veiculos' veiculos.pk %}" class="btn btn-warning btn-sm" title="Editar">Editar</a>
+                <a href="{% url 'excluir-veiculos' veiculos.pk %}" class="btn btn-danger btn-sm" title="Excluir">Excluir</a>
+                </td>
+            </tr>
+
+            {% empty %}
+            <tr>
+                <td colspan="3">
+                    Nenhum campo registrado.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function(){
+        $('#tabela-listar').DataTable({
+        responsive: true,
+        // "bSort": false,
+        "aaSorting": [],
+        "pageLength": 50,
+        "language": {
+            "decimal": "",
+            "emptyTable": "Sem dados disponíveis",
+            "info": "Mostrando de START até END de TOTAL registos",
+            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+            "infoFiltered": "(filtrado de MAX registos no total)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar MENU registos",
+            "loadingRecords": "A carregar dados...",
+            "processing": "A processar...",
+            "search": "Procurar:",
+            "zeroRecords": "Não foram encontrados resultados",
+            "paginate": {
+                "first": "Primeiro",
+                "last": "Último",
+                "next": "Seguinte",
+                "previous": "Anterior"
+            },
+            "aria": {
+                "sortAscending": ": ordem crescente",
+                "sortDescending": ": ordem decrescente"
+            }
+        }
+    });
+    });
+
+</script>
+{% endblock %}

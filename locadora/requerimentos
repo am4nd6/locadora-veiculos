@@ -1,0 +1,8 @@
+INSTALAR ESSAS BIBLIOTECAS:
+
+pip install django-braces
+pip install django-crispy-forms
+pip install requests
+
+
+acho que só :0
