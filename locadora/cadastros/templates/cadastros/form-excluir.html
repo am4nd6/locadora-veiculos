@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block conteudo %}
+<div class="delete-page">
 <h3>Excluir registros</h3>
 <p class="lead">Confirme para excluir o registro definitivamente</p>
 <hr>
@@ -15,4 +16,5 @@
     {{ form|crispy }}
 <button type="submit" class="btn btn-danger">Excluir</button>
 </form>
+</div>
 {% endblock %}

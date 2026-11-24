@@ -2,6 +2,7 @@ INSTALAR ESSAS BIBLIOTECAS:
 
 pip install django-braces
 pip install django-crispy-forms
+pip install crispy-bootstrap4
 pip install requests
 
 

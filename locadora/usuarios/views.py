@@ -2,8 +2,14 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.models import User, Group
 from .forms import UsuarioForm
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth import logout
 from .models import Perfil
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('inicio')
 
 # Create your views here.
 class UsuarioCreate(CreateView):
@@ -12,7 +18,8 @@ class UsuarioCreate(CreateView):
     success_url = reverse_lazy('login')
 
     def form_valid(self, form):
-        grupo = get_object_or_404(Group, name="Cliente")
+        # Garante que o grupo exista mesmo em bancos recém-criados.
+        grupo, _ = Group.objects.get_or_create(name="Cliente")
         url = super().form_valid(form)
         self.object.groups.add(grupo)
         self.object.save()

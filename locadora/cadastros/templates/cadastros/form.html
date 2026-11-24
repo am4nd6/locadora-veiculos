@@ -7,7 +7,7 @@
 
 {% block conteudo %}
 
-<div class="container-fluid bg-secondary px-0 position-center">
+<div class="container-fluid bg-secondary px-0 position-center auth-page">
     <div class="row g-0">
         <div class="py-6 px-5">
             <h3>{{ titulo }}</h3>
@@ -37,6 +37,21 @@
 
 <script>
     $(document).ready(function(){
+        $('#id_ano').attr({
+            'inputmode': 'numeric',
+            'pattern': '[0-9]*',
+            'min': '1886',
+            'max': '2100'
+        });
+
+        $('#id_ano').on('keydown', function(event) {
+            if (['e', 'E', '+', '-', '.', ','].includes(event.key)) {
+                event.preventDefault();
+            }
+        }).on('input', function() {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
         $("#id_nascimento").mask("00/00/0000");
         $("#id_cpf").mask("000.000.000-00");
         $("#id_rg").mask("00.000.000-0");

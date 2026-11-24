@@ -122,6 +122,287 @@ h6,
     z-index: 1;
 }
 
+/* Mantém o carrossel com a mesma altura, independentemente da imagem. */
+#header-carousel,
+#header-carousel .carousel-inner,
+#header-carousel .carousel-item {
+    height: 700px;
+}
+
+#header-carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buscar-page {
+    min-height: calc(100vh - 430px);
+}
+
+.list-page {
+    min-height: calc(100vh - 430px);
+    padding: 2rem 3rem;
+}
+
+.delete-page {
+    min-height: calc(100vh - 430px);
+    padding: 2rem 3rem;
+}
+
+@media (max-width: 576px) {
+    #header-carousel,
+    #header-carousel .carousel-inner,
+    #header-carousel .carousel-item {
+        height: 500px;
+    }
+}
+
+.site-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-footer {
+    margin-top: auto;
+    width: 100%;
+    flex-shrink: 0;
+    display: block;
+    height: auto;
+    overflow: visible;
+}
+
+.site-footer .container-fluid {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.site-footer p,
+.site-footer a {
+    overflow-wrap: anywhere;
+}
+
+.auth-page {
+    width: calc(100% - 2rem);
+    max-width: calc(100% - 2rem);
+    margin: 1rem auto;
+    padding: 1rem !important;
+    overflow: hidden;
+}
+
+.auth-page > .row {
+    width: 100%;
+    max-width: 100%;
+}
+
+.auth-page form {
+    width: 100%;
+    max-width: 100%;
+}
+
+.auth-page > .row > div {
+    padding: 2rem !important;
+}
+
+.auth-page input,
+.auth-page select,
+.auth-page textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .auth-page {
+        width: calc(100% - 2rem) !important;
+        max-width: calc(100% - 2rem) !important;
+        margin: 1rem auto !important;
+    }
+
+    .auth-page > .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .auth-page > .row > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.5rem 1rem !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .container-fluid,
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .position-center > .row > [class*="py-"],
+    .position-center .py-6.px-5 {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.5rem 1rem !important;
+    }
+
+    .position-center form,
+    .position-center .form-control,
+    .position-center .form-select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .site-footer [class*="col-"] {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .site-footer .d-flex {
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .navbar {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .carousel-caption {
+        padding: 1rem;
+    }
+
+    .carousel-caption h1 {
+        font-size: 2rem;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1rem;
+    }
+
+    .table-responsive {
+        max-width: 100vw;
+    }
+}
+
+/* Ajustes para telas extremamente estreitas, inclusive dispositivos com menos
+   de 200px de largura. Evita rolagem horizontal e quebra textos longos. */
+@media (max-width: 575.98px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container,
+    .container-fluid,
+    .row,
+    [class*="col-"] {
+        max-width: 100%;
+    }
+
+    .container-fluid.p-5,
+    .container-fluid.px-5,
+    .container-fluid.py-6,
+    .py-6.px-5 {
+        padding: 1rem !important;
+    }
+
+    .navbar {
+        padding-left: .5rem !important;
+        padding-right: .5rem !important;
+    }
+
+    .navbar-brand h1 {
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    .navbar-brand img {
+        width: 32px;
+        height: 32px;
+    }
+
+    h1,
+    .display-1,
+    .display-4,
+    .display-5 {
+        font-size: 1.35rem !important;
+        overflow-wrap: anywhere;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        overflow-wrap: anywhere;
+    }
+
+    p,
+    a,
+    button,
+    label,
+    input,
+    select,
+    textarea {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table {
+        font-size: .75rem;
+        min-width: 600px;
+    }
+
+    .list-page,
+    .delete-page {
+        padding: 1rem .5rem;
+    }
+}
+
+@media (max-width: 200px) {
+    .container-fluid.p-5,
+    .container-fluid.px-5,
+    .container-fluid.py-6,
+    .py-6.px-5,
+    .list-page,
+    .delete-page {
+        padding: .5rem !important;
+    }
+
+    .navbar-brand h1 {
+        font-size: .8rem;
+    }
+
+    .navbar-toggler {
+        padding: .15rem .3rem;
+    }
+
+    .btn {
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #header-carousel,
+    #header-carousel .carousel-inner,
+    #header-carousel .carousel-item {
+        height: 300px;
+    }
+}
+
 @media (max-width: 576px) {
     .carousel-caption h5 {
         font-size: 14px;

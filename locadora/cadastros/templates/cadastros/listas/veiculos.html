@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block conteudo %}
+<div class="list-page">
 <h3>Lista de veículos registrados</h3>
 <a href="{% url 'cadastrar-veiculos' %}" class="btn btn-primary btn-sm">Adicionar veículo</a>
 <hr>
@@ -44,14 +45,21 @@
 
             {% empty %}
             <tr>
-                <td colspan="3">
-                    Nenhum campo registrado.
-                </td>
+                <td>Nenhum veículo registrado.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+ </div>
 {% endblock %}
 
 {% block scripts %}
@@ -65,12 +73,12 @@
         "language": {
             "decimal": "",
             "emptyTable": "Sem dados disponíveis",
-            "info": "Mostrando de START até END de TOTAL registos",
-            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
-            "infoFiltered": "(filtrado de MAX registos no total)",
+            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "infoEmpty": "Mostrando de 0 até 0 de 0 registros",
+            "infoFiltered": "(filtrado de _MAX_ registros no total)",
             "infoPostFix": "",
             "thousands": ",",
-            "lengthMenu": "Mostrar MENU registos",
+            "lengthMenu": "Mostrar _MENU_ registros",
             "loadingRecords": "A carregar dados...",
             "processing": "A processar...",
             "search": "Procurar:",
