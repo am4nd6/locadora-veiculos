@@ -7,6 +7,8 @@ Sistema web para locação de veículos desenvolvido com Django.
 Este é um projeto prático desenvolvido em 2023 no Instituto Federal do Maranhão
 (IFMA) – Campus Monte Castelo, em São Luís.
 
+![Tela inicial do sistema](locadora/static/img/home.png)
+
 ## Tecnologias
 
 - **Python 3.10+** / **Django 4.1**
